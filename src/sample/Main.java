@@ -16,11 +16,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
 
+        MainWindow.show(stage,"src/sample/work2.xml",800,800);
 
-        SaxParser sax=new SaxParser("src/sample/work.xml");
-        Scene scene =new Scene(CreateTable.getGroup(),800,800);
-        stage.setScene(scene);
-        stage.show();
+
 
     }
 

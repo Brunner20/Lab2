@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tounaments>
+    <tournament>
+        <NameOfTournament>chess tournament</NameOfTournament>
+        <TypeOfSport>chess</TypeOfSport>
+        <DateOfTournament>2019-05-10</DateOfTournament>
+        <name>Ivanov Artem</name>
+        <prize>100</prize>
+    </tournament>
+    <tournament>
+        <NameOfTournament>Biathlon World Cup</NameOfTournament>
+        <TypeOfSport>biathlon</TypeOfSport>
+        <DateOfTournament>2018-03-14</DateOfTournament>
+        <name>Selina Anastasia</name>
+        <prize>86</prize>
+    </tournament>
+</tounaments>

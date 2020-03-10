@@ -8,13 +8,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.FlowPane;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
   public class CreateTable {
-    public static Group getGroup(){
+    public  TableView<Tournament> makeTable(ObservableList<Tournament> list)  {
 
 
         TableView<Tournament> table= new TableView<Tournament>();
@@ -31,17 +34,12 @@ import java.util.List;
         TableColumn<Tournament,String> tournirIncome = new TableColumn<Tournament,String>("заработок");
         tournirIncome.setCellValueFactory(new PropertyValueFactory<Tournament, String>("income"));
 
-        table.setItems(SaxParser.getList());
+        table.setItems(list);
         table.getSelectionModel().setCellSelectionEnabled(true);
-        table.getColumns().add(tournirName);
-        table.getColumns().add(tournirDate);
-        table.getColumns().add(tournirSort);
-        table.getColumns().add(tournirWinner);
-        table.getColumns().add(tournirPrize);
-        table.getColumns().add(tournirIncome);
+        table.getColumns().addAll(tournirName,tournirDate,tournirSort,tournirWinner,tournirPrize,tournirIncome);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        Group group= new Group(table);
-        return group;
+
+        return table;
     }
 }
