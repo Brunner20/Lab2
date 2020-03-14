@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.Tournament;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +17,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-
-        MainWindow.show(stage,"src/sample/work2.xml",800,800);
+        ObservableList<Tournament> list =FXCollections.observableArrayList();
+        Controller cont= new Controller(list);
+        MainWindow mainWindow=new MainWindow(cont);
+        mainWindow.show();
 
 
 

@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<t xmlns="tounaments">
+<tounaments>
     <tournament>
-        <NameOfTournament>chess tournament</NameOfTournament>
-        <TypeOfSport>chess</TypeOfSport>
-        <DateOfTournament>2019-05-10</DateOfTournament>
-        <name>Ivanov Artem</name>
+        <nameOfTournament>chess tournament</nameOfTournament>
+        <typeOfSport>chess</typeOfSport>
+        <dateOfTournament>2019-05-10</dateOfTournament>
+        <lastName>Ivanov</lastName>
+        <firstName>Artem</firstName>
+        <middleName>Sergeevich</middleName>
         <prize>100</prize>
     </tournament>
     <tournament>
-        <NameOfTournament>Biathlon World Cup</NameOfTournament>
-        <TypeOfSport>biathlon</TypeOfSport>
-        <DateOfTournament>2018-03-14</DateOfTournament>
-        <name>Selina Anastasia</name>
+        <nameOfTournament>Biathlon World Cup</nameOfTournament>
+        <typeOfSport>biathlon</typeOfSport>
+        <dateOfTournament>2018-03-14</dateOfTournament>
+        <lastName>Petrov</lastName>
+        <firstName>Anton</firstName>
+        <middleName>Alekseevich</middleName>
         <prize>86</prize>
     </tournament>
-    <tournament>
-        <NameOfTournament>cup</NameOfTournament>
-        <TypeOfSport>voleyball</TypeOfSport>
-        <DateOfTournament>2019-03-15</DateOfTournament>
-        <name>Maccul Frank</name>
-        <prize>230</prize>
-    </tournament>
-</t>
+</tounaments>

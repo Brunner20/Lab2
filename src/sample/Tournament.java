@@ -1,30 +1,39 @@
 package sample;
 
 import java.time.LocalDate;
-import java.util.Calendar;
+import sample.Person;
 
 public class Tournament {
     private String nameOfTournament;
     private String typeOfSport;
     private LocalDate dateOfTournament;
-    private String name;
+    private Person winner;
     private int prize;
     private double income;
-public Tournament(String NameOfTournament, String TypeOfSport, String Name, LocalDate DateOfTournament, int prize){
-    this.nameOfTournament =NameOfTournament;
-    this.typeOfSport =TypeOfSport;
-    this.dateOfTournament =DateOfTournament;
-    this.name =Name;
+
+public Tournament(String nameOfTournament, String typeOfSport, Person winner, LocalDate dateOfTournament, int prize){
+    this.nameOfTournament =nameOfTournament;
+    this.typeOfSport =typeOfSport;
+    this.dateOfTournament =dateOfTournament;
+    this.winner =winner;
     this.prize =prize;
     this.income =0.6*prize;
 
 }
+    public Tournament(){
+        this.nameOfTournament =null;
+        this.typeOfSport =null;
+        this.dateOfTournament =null;
+        this.winner =null;
+        this.prize =0;
+        this.income =0;
+    }
 public String getNameOfTournament(){ return nameOfTournament;}
 public void setNameOfTournament(String name){this.nameOfTournament =name;}
 public  String getTypeOfSport(){return typeOfSport;}
 public  void setTypeOfSport(String type){ this.typeOfSport =type;}
-public  String getName(){return name;}
-public  void  setName(String name){this.name =name;}
+public  Person getWinner(){return winner;}
+public  void  setWinner(Person winner){this.winner =winner;}
 public LocalDate getDateOfTournament(){return dateOfTournament;}
 public  void  setDateOfTournament(LocalDate cal){this.dateOfTournament =cal;}
 public int getPrize(){ return prize;}

@@ -1,10 +1,12 @@
 <!--?xml version="1.0"?-->
 <tounaments>
     <tournament>
-        <NameOfTournament>chess tournament</NameOfTournament>
-        <TypeOfSport>chess</TypeOfSport>
-        <DateOfTournament>10.05.2019</DateOfTournament>
-        <name>Ivanov Artem</name>
+        <nameOfTournament>chess tournament</nameOfTournament>
+        <typeOfSport>chess</typeOfSport>
+        <dateOfTournament>10.05.2019</dateOfTournament>
+        <lastName>Ivanov </lastName>
+        <firstName>Artem</firstName>
+        <middleName>Sergeevich</middleName>
         <prize>100</prize>
     </tournament>
     <tournament>

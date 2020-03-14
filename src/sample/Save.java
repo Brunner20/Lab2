@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-public class DomParser {
+public class Save {
     public void parser(String path, ObservableList<Tournament> list){
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -50,10 +50,10 @@ public class DomParser {
     private static Node getTour(Document doc, Tournament tour) {
         Element language = doc.createElement("tournament");
 
-        language.appendChild(getTourElements(doc,  "NameOfTournament", tour.getNameOfTournament()));
-        language.appendChild(getTourElements(doc,  "TypeOfSport", tour.getTypeOfSport()));
-        language.appendChild(getTourElements(doc,  "DateOfTournament", tour.getDateOfTournament().toString()));
-        language.appendChild(getTourElements(doc,  "name", tour.getName()));
+        language.appendChild(getTourElements(doc,  "nameOfTournament", tour.getNameOfTournament()));
+        language.appendChild(getTourElements(doc,  "typeOfSport", tour.getTypeOfSport()));
+        language.appendChild(getTourElements(doc,  "dateOfTournament", tour.getDateOfTournament().toString()));
+       // language.appendChild(getTourElements(doc,  "name",String. tour.getName()));
         language.appendChild(getTourElements(doc,  "prize",String.valueOf(tour.getPrize())));
 
         return language;
