@@ -22,14 +22,15 @@ public class Controller {
     public  ObservableList<Tournament> getTournaments(){
         return  this.tournaments;
     }
-    private void setTournaments(ObservableList<Tournament> tournaments){
+    public void setTournaments(ObservableList<Tournament> tournaments){
         this.tournaments=tournaments;
     }
     public void addTournament(Tournament tournament){
         tournaments.add(tournament);
     }
-    public void deleteTournament(Tournament tournament){
-        this.tournaments.remove(tournament);
+    public void deleteTournament(ObservableList<Tournament> tournament){
+        for(Tournament tour:tournament)
+        this.tournaments.remove(tour);
     }
 
     public ObservableList<Tournament> findByNameOfTournament(String nameOfTournament){
@@ -37,7 +38,6 @@ public class Controller {
         for(Tournament tour: tournaments) {
             if (tour.getNameOfTournament().equals(nameOfTournament))
                 list.add(tour);
-
         }
         return list;
     }
@@ -46,7 +46,6 @@ public class Controller {
         for(Tournament tour: tournaments) {
             if (tour.getTypeOfSport().equals(type))
                 list.add(tour);
-
         }
         return list;
     }
@@ -55,19 +54,10 @@ public class Controller {
         for(Tournament tour: tournaments) {
             if (tour.getDateOfTournament().equals(date))
                 list.add(tour);
-
         }
         return list;
     }
-    public ObservableList<Tournament> findByDateOfTournament(String date){
-        ObservableList<Tournament> list= FXCollections.observableArrayList();
-        for(Tournament tour: tournaments) {
-            if (tour.getDateOfTournament().equals(date))
-                list.add(tour);
 
-        }
-        return list;
-    }
     public ObservableList<Tournament> findByWinnerOfTournament(Person person){
         ObservableList<Tournament> list= FXCollections.observableArrayList();
         for(Tournament tour: tournaments) {

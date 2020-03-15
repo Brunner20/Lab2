@@ -53,7 +53,9 @@ public class Save {
         language.appendChild(getTourElements(doc,  "nameOfTournament", tour.getNameOfTournament()));
         language.appendChild(getTourElements(doc,  "typeOfSport", tour.getTypeOfSport()));
         language.appendChild(getTourElements(doc,  "dateOfTournament", tour.getDateOfTournament().toString()));
-       // language.appendChild(getTourElements(doc,  "name",String. tour.getName()));
+        language.appendChild(getTourElements(doc,  "lastName", tour.getWinner().getLastname()));
+        language.appendChild(getTourElements(doc,  "firstName", tour.getWinner().getFirstname()));
+        language.appendChild(getTourElements(doc,  "middleName", tour.getWinner().getMiddlename()));
         language.appendChild(getTourElements(doc,  "prize",String.valueOf(tour.getPrize())));
 
         return language;

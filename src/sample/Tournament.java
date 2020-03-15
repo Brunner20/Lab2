@@ -1,7 +1,7 @@
 package sample;
 
 import java.time.LocalDate;
-import sample.Person;
+
 
 public class Tournament {
     private String nameOfTournament;
@@ -37,7 +37,7 @@ public  void  setWinner(Person winner){this.winner =winner;}
 public LocalDate getDateOfTournament(){return dateOfTournament;}
 public  void  setDateOfTournament(LocalDate cal){this.dateOfTournament =cal;}
 public int getPrize(){ return prize;}
-public void  setPrize(int prize){this.prize =prize;}
+public void  setPrize(int prize){this.prize =prize; this.income=0.6*prize;}
 public  double getIncome(){return income;}
 public  void  setIncome(double inc){this.income =inc;}
 

@@ -2,16 +2,12 @@ package sample;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
-
 import java.io.File;
 import java.time.LocalDate;
-import java.util.List;
-
 
 public class Load {
 
@@ -40,7 +36,7 @@ public class Load {
         private boolean bmiddleName = false;
         private boolean bprize = false;
 
-        private  ObservableList<Tournament> tournaments = FXCollections.observableArrayList();
+        private  ObservableList<Tournament> tournaments = null;
         private Tournament tournament = null;
         private  Person person=null;
         private String data;
@@ -63,7 +59,7 @@ public class Load {
                 tournament = new Tournament();
                 person=new Person();
                 if(tournaments == null) {
-                    // tournaments=FXCollections.observableArrayList();
+                     tournaments=FXCollections.observableArrayList();
                 }
             }
 
