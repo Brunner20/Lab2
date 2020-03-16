@@ -46,8 +46,8 @@ public class Load {
                 for(Tournament tour: tournaments)
                     System.out.println(String.format("Имя соревнования: %s, вид спорта: %s, победитель n: %s, победитель f: %s, победитель m: %s,награды: %d," +
                                     "заработок: %.1f, дата проведения %tD"
-                            , tour.getNameOfTournament(), tour.getTypeOfSport(),tour.getWinner().getFirstname(),
-                            tour.getWinner().getLastname(),tour.getWinner().getMiddlename(),tour.getPrize(),
+                            , tour.getNameOfTournament(), tour.getTypeOfSport(),tour.getWinner().getFirstName(),
+                            tour.getWinner().getLastName(),tour.getWinner().getMiddleName(),tour.getPrize(),
                             tour.getIncome(),tour.getDateOfTournament()));
             else System.out.println("empty");
             return tournaments;
@@ -106,15 +106,15 @@ public class Load {
                 bdateOfTournament = false;
             }
             else if (blastName) {
-                person.setLastname(data.toString());
+                person.setLastName(data.toString());
                 blastName = false;
             }
             else if (bfirstName) {
-                person.setFirstname(data.toString());
+                person.setFirstName(data.toString());
                 bfirstName = false;
             }
             else if (bmiddleName) {
-                person.setMiddlename(data.toString());
+                person.setMiddleName(data.toString());
                 bmiddleName = false;
             }
             else if (bprize) {

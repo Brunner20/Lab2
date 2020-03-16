@@ -61,11 +61,11 @@ public class Controller {
     public ObservableList<Tournament> findByWinnerOfTournament(Person person){
         ObservableList<Tournament> list= FXCollections.observableArrayList();
         for(Tournament tour: tournaments) {
-            if (tour.getWinner().getFirstname().equals(person.getFirstname()))
+            if (tour.getWinner().getFirstName().equals(person.getFirstName()))
                 list.add(tour);
-            else if(tour.getWinner().getLastname().equals(person.getLastname()))
+            else if(tour.getWinner().getLastName().equals(person.getLastName()))
                 list.add(tour);
-            else if (tour.getWinner().getMiddlename().equals(person.getMiddlename()))
+            else if (tour.getWinner().getMiddleName().equals(person.getMiddleName()))
                 list.add(tour);
 
         }
@@ -86,6 +86,21 @@ public class Controller {
             if (tour.getIncome()<upperPrize && tour.getIncome()>lowerPrize)
                 list.add(tour);
 
+        }
+        return list;
+    }
+    public  ObservableList<Tournament> getPage(int numberPage,int rowsInPage){
+        ObservableList<Tournament> list =FXCollections.observableArrayList();
+        int firstItem=(numberPage-1)*rowsInPage;
+        int lastItem=firstItem;
+        for(int i=1;i<rowsInPage;i++)
+            if(lastItem<tournaments.size()-1)
+            {
+                lastItem++;
+            }
+             else break;
+        for(int i=firstItem;i<=lastItem;i++){
+            list.add(tournaments.get(i));
         }
         return list;
     }

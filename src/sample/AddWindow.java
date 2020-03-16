@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,12 +11,14 @@ import javafx.stage.Stage;
 
 public class AddWindow {
     private Controller controller;
+    private Stage newWindow;
+    private ObservableList<Tournament> listForAdd;
 
     public AddWindow(Controller controller){
         this.controller=controller;
+        newWindow = new Stage();
     }
     public void addTournament(){
-
 
         Label tourNameLa=new Label("название турнира");
         TextField tourName=new TextField();
@@ -36,18 +37,21 @@ public class AddWindow {
         TextField tourPrize=new TextField();
         Button addBtn=new Button("добавить");
 
-        ObservableList<Tournament> findList = FXCollections.observableArrayList();
-
-
         addBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(!tourName.getText().equals("")&& !tourType.getText().equals("")&& !tourWinnerFirst.getText().equals("") &&
-                        !tourWinnerLast.getText().equals("") && !tourWinnerMiddle.getText().equals("") && tourDate.getValue()!=null && tourPrize.getText()!=null)
+                if(!tourName.getText().equals("")&& !tourType.getText().equals("")&& (!tourWinnerFirst.getText().equals("") ||
+                        !tourWinnerLast.getText().equals("") || !tourWinnerMiddle.getText().equals("")) && tourDate.getValue()!=null && tourPrize.getText()!=null)
+                {
+                    controller.getTournaments().add(new Tournament(tourName.getText(), tourType.getText(),
+                            new Person(tourWinnerFirst.getText(), tourWinnerLast.getText(),
+                            tourWinnerMiddle.getText()), tourDate.getValue(), Integer.parseInt(tourPrize.getText())));
 
-                controller.addTournament(new Tournament(tourName.getText(),tourType.getText(),new Person(tourWinnerFirst.getText(),tourWinnerLast.getText(),
-                        tourWinnerMiddle.getText()),tourDate.getValue(), Integer.parseInt(tourPrize.getText())));
-                else System.out.println("некорректные данные");
+                    newWindow.close();
+                }
+                else { Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("НЕКОРРЕКТНЫЕ ДАННЫЕ");
+                    alert.showAndWait();}
 
             }
         });
@@ -82,7 +86,6 @@ public class AddWindow {
         grid.add(addBtn,10,1,2,2);
 
         Scene scene = new Scene(grid,800,500);
-        Stage newWindow = new Stage();
         newWindow.setTitle("добавить");
         newWindow.setScene(scene);
         newWindow.show();

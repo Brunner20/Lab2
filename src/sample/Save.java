@@ -8,7 +8,6 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import javafx.collections.ObservableList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -53,9 +52,9 @@ public class Save {
         language.appendChild(getTourElements(doc,  "nameOfTournament", tour.getNameOfTournament()));
         language.appendChild(getTourElements(doc,  "typeOfSport", tour.getTypeOfSport()));
         language.appendChild(getTourElements(doc,  "dateOfTournament", tour.getDateOfTournament().toString()));
-        language.appendChild(getTourElements(doc,  "lastName", tour.getWinner().getLastname()));
-        language.appendChild(getTourElements(doc,  "firstName", tour.getWinner().getFirstname()));
-        language.appendChild(getTourElements(doc,  "middleName", tour.getWinner().getMiddlename()));
+        language.appendChild(getTourElements(doc,  "lastName", tour.getWinner().getLastName()));
+        language.appendChild(getTourElements(doc,  "firstName", tour.getWinner().getFirstName()));
+        language.appendChild(getTourElements(doc,  "middleName", tour.getWinner().getMiddleName()));
         language.appendChild(getTourElements(doc,  "prize",String.valueOf(tour.getPrize())));
 
         return language;

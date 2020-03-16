@@ -14,11 +14,11 @@ public class Person {
         firstname=null;
         middlename=null;
     }
-    public  void  setFirstname(String firstname){this.firstname=firstname;}
-    public  String getFirstname(){return  this.firstname;}
-    public  void  setLastname(String lastname){this.lastname=lastname;}
-    public  String getLastname(){return  this.lastname;}
-    public  void setMiddlename(String middlename){this.middlename=middlename;}
-    public  String getMiddlename(){return  this.middlename;}
+    public  void setFirstName(String firstname){this.firstname=firstname;}
+    public  String getFirstName(){return  this.firstname;}
+    public  void setLastName(String lastname){this.lastname=lastname;}
+    public  String getLastName(){return  this.lastname;}
+    public  void setMiddleName(String middlename){this.middlename=middlename;}
+    public  String getMiddleName(){return  this.middlename;}
 }
 

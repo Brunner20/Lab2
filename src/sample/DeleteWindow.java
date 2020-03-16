@@ -16,7 +16,7 @@ public class DeleteWindow {
     public DeleteWindow(Controller controller){
         this.controller=controller;
     }
-    public  void show() {
+    public void delete() {
         Label tourNameLa=new Label("название турнира");
         TextField tourName=new TextField();
         Button searchByNameOfTourBtn=new Button("удалить по названию турнира");
@@ -55,7 +55,7 @@ public class DeleteWindow {
         TextField tourIncomeUpper=new TextField();
         Button searchByIncome=new Button(" удалить по заработку");
 
-        CreateTable table=new CreateTable();
+        TournamentTable table=new TournamentTable(controller);
 
         searchByNameOfTourBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -145,8 +145,6 @@ public class DeleteWindow {
         grid.add(tourIncomeUpper,1,12);
         grid.add(searchByIncome,2,11);
 
-        grid.add(table.getTable(),4,0,25,15);
-
         Scene scene = new Scene(grid,800,600);
         Stage newWindow = new Stage();
         newWindow.setTitle("поиск");
@@ -169,10 +167,11 @@ public class DeleteWindow {
         else{
             deleted.setText(" команд для удаления не обнаружено");
         }
-        Scene scene = new Scene(grid,100,100);
+        Scene scene = new Scene(grid,300,300);
         Stage newWindow = new Stage();
         newWindow.setTitle("результат удаления");
         newWindow.setScene(scene);
         newWindow.show();
+
     }
 }

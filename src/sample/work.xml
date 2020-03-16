@@ -27,4 +27,13 @@
         <middleName>Александрович</middleName>
         <prize>134</prize>
     </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>легкая атлетика</typeOfSport>
+        <dateOfTournament>2018-11-23</dateOfTournament>
+        <lastName>Чудопал </lastName>
+        <firstName>Александр</firstName>
+        <middleName>Сергеевич</middleName>
+        <prize>3000</prize>
+    </tournament>
 </tounaments>

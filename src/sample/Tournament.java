@@ -18,7 +18,6 @@ public Tournament(String nameOfTournament, String typeOfSport, Person winner, Lo
     this.winner =winner;
     this.prize =prize;
     this.income =0.6*prize;
-
 }
     public Tournament(){
         this.nameOfTournament =null;
@@ -39,8 +38,4 @@ public  void  setDateOfTournament(LocalDate cal){this.dateOfTournament =cal;}
 public int getPrize(){ return prize;}
 public void  setPrize(int prize){this.prize =prize; this.income=0.6*prize;}
 public  double getIncome(){return income;}
-public  void  setIncome(double inc){this.income =inc;}
-
-
-
 }

@@ -1,7 +1,6 @@
 package sample;
 
 import java.io.File;
-import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,24 +10,21 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 public class   MainWindow   {
     private Controller controller;
     private Stage stage;
-    CreateTable table;
+    TournamentTable table;
 
 
     public MainWindow(Controller controller){
         this.controller=controller;
-        stage=new Stage();
-        table=new CreateTable();
+        this.stage=new Stage();
+        this.table=new TournamentTable(controller);
 
 
     }
-    public  void show() throws IOException, SAXException, ParserConfigurationException {
+    public  void show() {
         stage.setTitle("лаб2");
         Button loadBtn=new Button("загрузить");
         loadBtn.setLayoutY(230);
@@ -68,6 +64,7 @@ public class   MainWindow   {
             public void handle(ActionEvent actionEvent) {
                 AddWindow add =new AddWindow(controller);
                 add.addTournament();
+                table.makeTable(controller.getTournaments());
             }
         });
         Button deleteBtn=new Button("удаление");
@@ -78,7 +75,8 @@ public class   MainWindow   {
             @Override
             public void handle(ActionEvent actionEvent) {
                 DeleteWindow del=new DeleteWindow(controller);
-                del.show();
+                del.delete();
+                table.makeTable(controller.getTournaments());
             }
         });
 
@@ -109,6 +107,7 @@ public class   MainWindow   {
                 }
             }
         });
+
         GridPane grid=new GridPane();
         grid.setPadding(new Insets(20));
         grid.setHgap(25);
@@ -119,12 +118,9 @@ public class   MainWindow   {
         grid.add(deleteBtn,0,3);
         grid.add(addBtn,0,4);
         grid.add(table.getTable(),2,0,20,5);
-        Scene scene =new Scene(grid,800,600);
+        Scene scene =new Scene(grid,1100,600);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void update(){
-
-    }
 }

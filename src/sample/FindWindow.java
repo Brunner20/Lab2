@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,10 +15,11 @@ import javafx.stage.Stage;
 public class FindWindow {
     private Controller controller;
     private ObservableList<Tournament> searchResult;
-    private CreateTable table;
+    private TournamentTable table;
+
      public FindWindow(Controller controller){
          this.controller=controller;
-         this.table=new CreateTable();
+         table=new TournamentTable(new Controller(FXCollections.observableArrayList()));
      }
     public  void findTournament()  {
 
@@ -77,7 +79,6 @@ public class FindWindow {
             @Override
             public void handle(ActionEvent actionEvent) {
                 searchResult=controller.findByTypeOfSport(tourType.getValue());
-
                 table.makeTable(searchResult);
             }
         });
@@ -86,7 +87,6 @@ public class FindWindow {
             public void handle(ActionEvent actionEvent) {
                 searchResult=controller.findByWinnerOfTournament(new Person(tourWinnerLast.getText(),
                         tourWinnerFirst.getText(),tourWinnerMiddle.getText()));
-                //table=new CreateTable(searchResult);
                 table.makeTable(searchResult);
             }
         });
@@ -94,7 +94,6 @@ public class FindWindow {
             @Override
             public void handle(ActionEvent actionEvent) {
                 searchResult=controller.findByPrize(Integer.parseInt(tourPrizeLow.getText()), Integer.parseInt(tourPrizeUpper.getText()));
-                //table=new CreateTable(searchResult);
                 table.makeTable(searchResult);
             }
         });
@@ -102,7 +101,6 @@ public class FindWindow {
             @Override
             public void handle(ActionEvent actionEvent) {
                 searchResult=controller.findByIncome(Integer.parseInt(tourIncomeLow.getText()), Integer.parseInt(tourIncomeUpper.getText()));
-               // table=new CreateTable(searchResult);
                 table.makeTable(searchResult);
             }
         });
@@ -147,7 +145,7 @@ public class FindWindow {
 
         grid.add(table.getTable(),4,0,25,15);
 
-        Scene scene = new Scene(grid,800,600);
+        Scene scene = new Scene(grid,1200,600);
         Stage newWindow = new Stage();
         newWindow.setTitle("поиск");
         newWindow.setScene(scene);

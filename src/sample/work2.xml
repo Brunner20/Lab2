@@ -18,4 +18,31 @@
         <middleName>Alekseevich</middleName>
         <prize>86</prize>
     </tournament>
+    <tournament>
+        <nameOfTournament>лыжный турнир</nameOfTournament>
+        <typeOfSport>лыжи</typeOfSport>
+        <dateOfTournament>2019-03-20</dateOfTournament>
+        <lastName>Купен</lastName>
+        <firstName>Юрий</firstName>
+        <middleName>Александрович</middleName>
+        <prize>134</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>легкая атлетика</typeOfSport>
+        <dateOfTournament>2018-11-23</dateOfTournament>
+        <lastName>Чудопал </lastName>
+        <firstName>Александр</firstName>
+        <middleName>Сергеевич</middleName>
+        <prize>3000</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>тяжелая алтетика</typeOfSport>
+        <dateOfTournament>2017-11-22</dateOfTournament>
+        <lastName>Снежко</lastName>
+        <firstName>Владимир</firstName>
+        <middleName>Алексеевич</middleName>
+        <prize>3400</prize>
+    </tournament>
 </tounaments>
