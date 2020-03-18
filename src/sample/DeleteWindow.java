@@ -12,14 +12,18 @@ import javafx.stage.Stage;
 public class DeleteWindow {
     private Controller controller;
     private ObservableList<Tournament> listForDelete;
+    private TournamentTable table;
+    private Stage newWindow;
 
-    public DeleteWindow(Controller controller){
+    public DeleteWindow(Controller controller,TournamentTable table){
         this.controller=controller;
+        this.table=table;
+        this.newWindow=new Stage();
     }
     public void delete() {
         Label tourNameLa=new Label("название турнира");
         TextField tourName=new TextField();
-        Button searchByNameOfTourBtn=new Button("удалить по названию турнира");
+        Button delByNameOfTourBtn=new Button("удалить по названию турнира");
 
         Label tourTypeLa=new Label("вид спорта");
         ComboBox<String> tourType=new ComboBox<String>();
@@ -28,11 +32,11 @@ public class DeleteWindow {
             System.out.println(tour.getTypeOfSport());
             tourType.getItems().add(tour.getTypeOfSport());
         }
-        Button searchByTypeBtn=new Button("удалить по виду спорта");
+        Button delByTypeBtn=new Button("удалить по виду спорта");
 
         Label tourDateLa=new Label("дата проведения");
         DatePicker tourDate = new DatePicker();
-        Button searchByDateBtn=new Button("удалить по дате проведения");
+        Button delByDateBtn=new Button("удалить по дате проведения");
 
         Label tourWinnerLa=new Label("победитель турнира ");
         Label tourWinnerFLa=new Label("имя ");
@@ -41,69 +45,79 @@ public class DeleteWindow {
         TextField tourWinnerFirst=new TextField();
         TextField tourWinnerLast=new TextField();
         TextField tourWinnerMiddle=new TextField();
-        Button searchByWinner=new Button("удалить по ФИО");
+        Button delByWinner=new Button("удалить по ФИО");
 
         Label tourPrizeLaLow=new Label("призовые       от");
         Label tourPrizeLaUpper=new Label("призовые       до");
         TextField tourPrizeLow=new TextField();
         TextField tourPrizeUpper=new TextField();
-        Button searchByPrize=new Button("удалить по призовым");
+        Button delByPrize=new Button("удалить по призовым");
 
         Label tourIncomeLaLow=new Label("заработок      от");
         Label tourIncomeLaUpper=new Label("заработок    до");
         TextField tourIncomeLow=new TextField();
         TextField tourIncomeUpper=new TextField();
-        Button searchByIncome=new Button(" удалить по заработку");
+        Button delByIncome=new Button(" удалить по заработку");
 
-        TournamentTable table=new TournamentTable(controller);
-
-        searchByNameOfTourBtn.setOnAction(new EventHandler<ActionEvent>() {
+        delByNameOfTourBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete=controller.findByNameOfTournament(tourName.getText());
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
             }
         });
-        searchByDateBtn.setOnAction(new EventHandler<ActionEvent>() {
+        delByDateBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete = controller.findByDateOfTournament(tourDate.getValue());
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
             }
         });
-        searchByTypeBtn.setOnAction(new EventHandler<ActionEvent>() {
+        delByTypeBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete=controller.findByTypeOfSport(tourType.getValue());
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
             }
         });
-        searchByWinner.setOnAction(new EventHandler<ActionEvent>() {
+        delByWinner.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete=controller.findByWinnerOfTournament(new Person(tourWinnerLast.getText(),
                         tourWinnerFirst.getText(),tourWinnerMiddle.getText()));
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
             }
         });
-        searchByPrize.setOnAction(new EventHandler<ActionEvent>() {
+        delByPrize.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete=controller.findByPrize(Integer.parseInt(tourPrizeLow.getText()), Integer.parseInt(tourPrizeUpper.getText()));
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
             }
         });
-        searchByIncome.setOnAction(new EventHandler<ActionEvent>() {
+        delByIncome.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 listForDelete=controller.findByIncome(Integer.parseInt(tourIncomeLow.getText()), Integer.parseInt(tourIncomeUpper.getText()));
                 controller.deleteTournament(listForDelete);
-                dialog(listForDelete);
+                dialog(listForDelete.size());
+                table.updateTable();
+                newWindow.close();
                 }
         });
 
@@ -114,15 +128,15 @@ public class DeleteWindow {
 
         grid.add(tourNameLa,0,0);
         grid.add(tourName,1,0);
-        grid.add(searchByNameOfTourBtn,2,0);
+        grid.add(delByNameOfTourBtn,2,0);
 
         grid.add(tourTypeLa,0,1);
         grid.add(tourType,1,1);
-        grid.add(searchByTypeBtn,2,1);
+        grid.add(delByTypeBtn,2,1);
 
         grid.add(tourDateLa,0,2);
         grid.add(tourDate,1,2);
-        grid.add(searchByDateBtn,2,2);
+        grid.add(delByDateBtn,2,2);
 
         grid.add(tourWinnerLa,0,3);
         grid.add(tourWinnerFLa,0,4);
@@ -131,28 +145,28 @@ public class DeleteWindow {
         grid.add(tourWinnerFirst,1,4);
         grid.add(tourWinnerLast,1,5);
         grid.add(tourWinnerMiddle,1,6);
-        grid.add(searchByWinner,2,5);
+        grid.add(delByWinner,2,5);
 
         grid.add(tourPrizeLaLow,0,8);
         grid.add(tourPrizeLaUpper,0,9);
         grid.add(tourPrizeLow,1,8);
         grid.add(tourPrizeUpper,1,9);
-        grid.add(searchByPrize,2,8);
+        grid.add(delByPrize,2,8);
 
         grid.add(tourIncomeLaLow,0,11);
         grid.add(tourIncomeLaUpper,0,12);
         grid.add(tourIncomeLow,1,11);
         grid.add(tourIncomeUpper,1,12);
-        grid.add(searchByIncome,2,11);
+        grid.add(delByIncome,2,11);
 
         Scene scene = new Scene(grid,800,600);
-        Stage newWindow = new Stage();
+
         newWindow.setTitle("поиск");
         newWindow.setScene(scene);
         newWindow.show();
 
     }
-    private void dialog(ObservableList<Tournament> list){
+    private void dialog(int counter){
         Label deleted=new Label();
         Label count =new Label();
         GridPane grid =new GridPane();
@@ -160,18 +174,18 @@ public class DeleteWindow {
         grid.setHgap(10);
         grid.add(deleted,0,0);
         grid.add(count,1,0);
-        if(list.size()!=0){
+        if(counter!=0){
             deleted.setText("Было удалено");
-            count.setText( String.valueOf(list.size()));
+            count.setText( String.valueOf(counter));
         }
         else{
             deleted.setText(" команд для удаления не обнаружено");
         }
-        Scene scene = new Scene(grid,300,300);
-        Stage newWindow = new Stage();
-        newWindow.setTitle("результат удаления");
-        newWindow.setScene(scene);
-        newWindow.show();
+        Scene scene = new Scene(grid,300,150);
+        Stage dialogWindow =new Stage();
+        dialogWindow.setTitle("результат удаления");
+        dialogWindow.setScene(scene);
+        dialogWindow.show();
 
     }
 }

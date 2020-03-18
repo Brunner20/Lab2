@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -62,11 +63,12 @@ public class   MainWindow   {
         addBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                AddWindow add =new AddWindow(controller);
+                AddWindow add =new AddWindow(controller,table);
                 add.addTournament();
-                table.makeTable(controller.getTournaments());
+
             }
         });
+
         Button deleteBtn=new Button("удаление");
         deleteBtn.setLayoutY(350);
         deleteBtn.setLayoutX(600);
@@ -74,9 +76,9 @@ public class   MainWindow   {
         deleteBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DeleteWindow del=new DeleteWindow(controller);
+                DeleteWindow del=new DeleteWindow(controller,table);
                 del.delete();
-                table.makeTable(controller.getTournaments());
+
             }
         });
 

@@ -80,7 +80,6 @@ import javafx.util.Callback;
             tournirPrize.setCellValueFactory(new PropertyValueFactory<Tournament, String>("prize"));
             TableColumn<Tournament, String> tournirIncome = new TableColumn<Tournament, String>("заработок");
             tournirIncome.setCellValueFactory(new PropertyValueFactory<Tournament, String>("income"));
-
             grid.setPadding(new Insets(20));
             grid.setHgap(25);
             grid.setVgap(15);
@@ -98,16 +97,16 @@ import javafx.util.Callback;
             table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
             used = true;
         }
+
             table.setItems(list);
     }
 
 
         public void updateTable(){
 
-        
-            if(controller.getTournaments().size()%rowsPerPage!=0)
-                lastPage=controller.getTournaments().size()/rowsPerPage+1;
-            else lastPage=controller.getTournaments().size()/rowsPerPage;
+            thisPageNumber=1;
+            System.out.println(lastPage);
+            calculateLastPage();
             descriptionLabel.setText(controller.getTournaments().size()+" записей разбить по");
             choiceBtn=new Button("Разбить");
             choiceBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -117,9 +116,7 @@ import javafx.util.Callback;
                         rowsPerPage=Integer.parseInt(rowsChoice.getText());
                         thisPageNumber=1;
                         makePage(controller.getPage(thisPageNumber, rowsPerPage));
-                        if(controller.getTournaments().size()%rowsPerPage!=0)
-                            lastPage=controller.getTournaments().size()/rowsPerPage+1;
-                        else lastPage=controller.getTournaments().size()/rowsPerPage;
+                        calculateLastPage();
                         thisPageLabel.setText(thisPageNumber+"/"+lastPage);
                     }
                     catch (Exception e) {
@@ -179,11 +176,19 @@ import javafx.util.Callback;
                     }
                 }
             });
-            thisPageLabel.setText(thisPageNumber+"/"+lastPage);
+            thisPageLabel.setText(thisPageNumber+"/"+this.lastPage);
 
         }
 
       public  GridPane getTable() {
           return this.grid;
       }
+      private  void calculateLastPage(){
+          if(controller.getTournaments().size()%rowsPerPage!=0)
+              this.lastPage=controller.getTournaments().size()/rowsPerPage+1;
+          else this.lastPage=controller.getTournaments().size()/rowsPerPage;
+          System.out.println(lastPage);
+
+      }
 }
+

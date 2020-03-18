@@ -86,40 +86,40 @@ public class Load {
                 bprize = true;
             }
 
-            data = new String();
+            data = "";
 
         }
 
         @Override
         public void endElement(String uri, String localName, String qName) {
             if(bnameOfTournament) {
-                tournament.setNameOfTournament(data.toString());
+                tournament.setNameOfTournament(data);
                 bnameOfTournament = false;
             }
             else if (btypeOfSport) {
-                tournament.setTypeOfSport(data.toString());
+                tournament.setTypeOfSport(data);
                 btypeOfSport = false;
             }
             else if (bdateOfTournament) {
-                tournament.setDateOfTournament(LocalDate.of(Integer.parseInt(data.toString().substring(0,4)),
-                        Integer.parseInt(data.toString().substring(5,7)),Integer.parseInt(data.toString().substring(8,10))));
+                tournament.setDateOfTournament(LocalDate.of(Integer.parseInt(data.substring(0,4)),
+                        Integer.parseInt(data.substring(5,7)),Integer.parseInt(data.substring(8,10))));
                 bdateOfTournament = false;
             }
             else if (blastName) {
-                person.setLastName(data.toString());
+                person.setLastName(data);
                 blastName = false;
             }
             else if (bfirstName) {
-                person.setFirstName(data.toString());
+                person.setFirstName(data);
                 bfirstName = false;
             }
             else if (bmiddleName) {
-                person.setMiddleName(data.toString());
+                person.setMiddleName(data);
                 bmiddleName = false;
             }
             else if (bprize) {
 
-                tournament.setPrize(Integer.parseInt(data.toString()));
+                tournament.setPrize(Integer.parseInt(data));
                 bprize = false;
             }
 
@@ -131,7 +131,7 @@ public class Load {
         }
 
         @Override
-        public void characters(char ch[], int start, int length) {
+        public void characters(char[] ch, int start, int length) {
             data=new String(ch, start, length);
 
         }

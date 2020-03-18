@@ -12,11 +12,13 @@ import javafx.stage.Stage;
 public class AddWindow {
     private Controller controller;
     private Stage newWindow;
-    private ObservableList<Tournament> listForAdd;
+    private TournamentTable table;
 
-    public AddWindow(Controller controller){
+
+    public AddWindow(Controller controller,TournamentTable table){
         this.controller=controller;
         newWindow = new Stage();
+        this.table=table;
     }
     public void addTournament(){
 
@@ -46,7 +48,7 @@ public class AddWindow {
                     controller.getTournaments().add(new Tournament(tourName.getText(), tourType.getText(),
                             new Person(tourWinnerFirst.getText(), tourWinnerLast.getText(),
                             tourWinnerMiddle.getText()), tourDate.getValue(), Integer.parseInt(tourPrize.getText())));
-
+                    table.updateTable();
                     newWindow.close();
                 }
                 else { Alert alert = new Alert(Alert.AlertType.ERROR);
