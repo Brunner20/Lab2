@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tounaments>
+    <tournament>
+        <nameOfTournament>шахматный турнир</nameOfTournament>
+        <typeOfSport>шахматы</typeOfSport>
+        <dateOfTournament>2019-05-10</dateOfTournament>
+        <lastName>Иванов</lastName>
+        <firstName>Артем</firstName>
+        <middleName>Сергеевич</middleName>
+        <prize>100</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>Кубок по биатлону</nameOfTournament>
+        <typeOfSport>биатлон</typeOfSport>
+        <dateOfTournament>2018-03-14</dateOfTournament>
+        <lastName>Петров</lastName>
+        <firstName>Антон</firstName>
+        <middleName>Алексеевич</middleName>
+        <prize>86</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>лыжный турнир</nameOfTournament>
+        <typeOfSport>лыжи</typeOfSport>
+        <dateOfTournament>2019-03-20</dateOfTournament>
+        <lastName>Купен</lastName>
+        <firstName>Юрий</firstName>
+        <middleName>Александрович</middleName>
+        <prize>134</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>легкая атлетика</typeOfSport>
+        <dateOfTournament>2018-11-23</dateOfTournament>
+        <lastName>Чудопал </lastName>
+        <firstName>Александр</firstName>
+        <middleName>Сергеевич</middleName>
+        <prize>3000</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>тяжелая алтетика</typeOfSport>
+        <dateOfTournament>2017-11-22</dateOfTournament>
+        <lastName>Снежко</lastName>
+        <firstName>Владимир</firstName>
+        <middleName>Алексеевич</middleName>
+        <prize>3400</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>хоккей</typeOfSport>
+        <dateOfTournament>2017-10-22</dateOfTournament>
+        <lastName>Бутрин</lastName>
+        <firstName>Станислав</firstName>
+        <middleName>Владимирович</middleName>
+        <prize>2500</prize>
+    </tournament>
+    <tournament>
+        <nameOfTournament>олимпийские игры</nameOfTournament>
+        <typeOfSport>биатлон</typeOfSport>
+        <dateOfTournament>2018-07-04</dateOfTournament>
+        <lastName>Сергеев</lastName>
+        <firstName>Владимир</firstName>
+        <middleName>Алексеевич</middleName>
+        <prize>3400</prize>
+    </tournament>
+</tounaments>
